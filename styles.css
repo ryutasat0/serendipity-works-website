@@ -435,42 +435,25 @@ body {
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-}
-
-.contact-info h3 {
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: #B8860B; /* 少し濃いゴールドっぽい上品なカラー */
-    margin-bottom: 40px;
-}
-
-.info-details {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.info-detail h4 {
-    font-size: 1.2rem;
-    font-weight: 300;
-    color: #2C2C2C; /* 上品な黒寄りのカラー */
-    margin-bottom: 15px;
-}
 
-.info-detail p {
-    font-size: 1rem;
-    color: var(--text-light);
-    line-height: 1.6;
+
+.contact-form {
+    width: 100%;
+    max-width: 600px;
 }
 
 .contact-form h3 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 300;
     color: #B8860B; /* 少し濃いゴールドっぽい上品なカラー */
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     text-align: center; /* 中央揃え */
 }
 
@@ -489,13 +472,13 @@ body {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 15px;
+    padding: 18px 20px;
     border: 1px solid var(--light-gold);
-    border-radius: 10px;
+    border-radius: 12px;
     font-family: 'Noto Serif JP', serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
     background: var(--white);
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .form-group input:focus,
@@ -512,9 +495,9 @@ body {
     background: var(--primary-gold);
     color: var(--white);
     border: none;
-    padding: 18px 40px;
+    padding: 20px 50px;
     font-family: 'Noto Serif JP', serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 300;
     border-radius: 50px;
     cursor: pointer;
@@ -906,28 +889,11 @@ body {
     }
     
     .contact-content {
-        grid-template-columns: 1fr;
-        gap: 60px;
+        max-width: 600px;
+        margin: 0 auto;
     }
     
-    .contact-info h3 {
-        font-size: 1.6rem;
-        margin-bottom: 35px;
-    }
-    
-    .info-details {
-        gap: 25px;
-    }
-    
-    .info-detail h4 {
-        font-size: 1.1rem;
-        margin-bottom: 12px;
-    }
-    
-    .info-detail p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
+
     
     .contact-form h3 {
         font-size: 1.6rem;
@@ -1091,6 +1057,12 @@ body {
     .section-header h2 {
         font-size: 1.8rem;
         letter-spacing: 0.1em;
+    }
+    
+    .contact-content {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 15px;
     }
     
     .about, .service, .philosophy, .contact {
