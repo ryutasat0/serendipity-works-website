@@ -1,0 +1,1260 @@
+/* リセットCSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 基本設定 */
+:root {
+    --primary-gold: #D4AF37;
+    --light-gold: #F4E4BC;
+    --pale-gold: #FDF6E3;
+    --warm-gold: #E6D7A8;
+    --dark-gold: #B8860B;
+    --text-dark: #2C2C2C;
+    --text-light: #666666;
+    --white: #FFFFFF;
+    --shadow: rgba(212, 175, 55, 0.1);
+}
+
+body {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-dark);
+    background-color: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ヘッダー */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #2C2C2C; /* 上品な黒寄りのカラー */
+    letter-spacing: 0.1em;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 300;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav a:hover {
+    color: var(--primary-gold);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--primary-gold);
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+/* メインビジュアル */
+.hero {
+    height: 100vh;
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://charm-labo.com/wp-content/uploads/2025/08/AdobeStock_1579814073.jpeg') center center no-repeat;
+    background-size: cover;
+    filter: brightness(0.7);
+    /* より確実な背景表示のための設定 */
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+/* デスクトップでは中央表示を維持 */
+@media (min-width: 1025px) {
+    .hero {
+        align-items: center;
+    }
+    
+    .hero-background {
+        background-position: center center;
+    }
+}
+
+/* 基本設定（デスクトップ用） */
+.hero {
+    align-items: center;
+}
+
+.hero-background img {
+    display: none; /* フォールバック用 */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 200;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.3;
+    max-width: 600px;
+    margin-left: 0;
+}
+
+/* セクション共通 */
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    color: #2C2C2C; /* 上品な黒寄りのカラー */
+    letter-spacing: 0.2em;
+    position: relative;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: var(--light-gold);
+}
+
+/* About */
+.about {
+    padding: 120px 0;
+    background: var(--pale-gold);
+}
+
+.about-content {
+    margin-bottom: 100px;
+}
+
+.about-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px;
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #B8860B; /* 少し濃いゴールドっぽい上品なカラー */
+    margin-bottom: 30px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text-light);
+}
+
+.company-info {
+    background: var(--white);
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.company-info h3 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #B8860B; /* 少し濃いゴールドっぽい上品なカラー */
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.info-item {
+    text-align: center;
+}
+
+.info-item .label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--primary-gold);
+    margin-bottom: 15px;
+    letter-spacing: 0.1em;
+}
+
+.info-item .value {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.serendipity-section {
+    text-align: center;
+    background: var(--white);
+    padding: 80px 60px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.serendipity-title {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #2C2C2C; /* 上品な黒寄りのカラー */
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.serendipity-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: var(--light-gold);
+}
+
+.serendipity-text {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text-light);
+    margin-bottom: 60px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.example-item {
+    text-align: center;
+}
+
+.example-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.example-item h4 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--dark-gold);
+}
+
+/* Service */
+.service {
+    padding: 120px 0;
+    background: var(--white);
+}
+
+.service-content h3 {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #B8860B; /* 少し濃いゴールドっぽい上品なカラー */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.service-content h4 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #2C2C2C; /* 上品な黒寄りのカラー */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.service-description {
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.iroatique-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    background: var(--pale-gold);
+    padding: 60px;
+    border-radius: 20px;
+}
+
+.iroatique-text h4 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #2C2C2C; /* 上品な黒寄りのカラー */
+    margin-bottom: 25px;
+}
+
+.iroatique-text h5 {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #2C2C2C; /* 上品な黒寄りのカラー */
+    margin: 30px 0 20px;
+}
+
+.iroatique-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.iroatique-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Philosophy */
+.philosophy {
+    padding: 120px 0;
+    background: var(--pale-gold);
+}
+
+.philosophy-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.philosophy-content h3 {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #B8860B; /* 少し濃いゴールドっぽい上品なカラー */
+    margin-bottom: 30px;
+}
+
+.philosophy-content h4 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #2C2C2C; /* 上品な黒寄りのカラー */
+    margin-bottom: 40px;
+}
+
+.philosophy-content p {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text-light);
+    text-align: left;
+}
+
+/* Contact */
+.contact {
+    padding: 120px 0;
+    background: var(--white);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #B8860B; /* 少し濃いゴールドっぽい上品なカラー */
+    margin-bottom: 40px;
+}
+
+.info-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.info-detail h4 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #2C2C2C; /* 上品な黒寄りのカラー */
+    margin-bottom: 15px;
+}
+
+.info-detail p {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.contact-form h3 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #B8860B; /* 少し濃いゴールドっぽい上品なカラー */
+    margin-bottom: 40px;
+    text-align: center; /* 中央揃え */
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--light-gold);
+    border-radius: 10px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1rem;
+    background: var(--white);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-gold);
+}
+
+.form-submit {
+    text-align: center;
+}
+
+.form-submit button {
+    background: var(--primary-gold);
+    color: var(--white);
+    border: none;
+    padding: 18px 40px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.form-submit button:hover {
+    background: var(--dark-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+/* フッター */
+.footer {
+    background: var(--text-dark);
+    color: var(--white);
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-logo h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--primary-gold);
+    margin-bottom: 15px;
+}
+
+.footer-logo p {
+    font-size: 1rem;
+    color: var(--light-gold);
+    line-height: 1.6;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: var(--light-gold);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-gold);
+}
+
+.footer-info p {
+    font-size: 0.9rem;
+    color: var(--light-gold);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* レスポンシブ対応 - bottlecap.siteスタイル */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    .hero {
+        height: 85vh;
+        min-height: 520px;
+        align-items: flex-end !important; /* 下寄りを強制 */
+    }
+    
+    .hero-content {
+        padding-bottom: 190px !important; /* 140px分上に調整 */
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .about, .service, .philosophy, .contact {
+        padding: 100px 0;
+    }
+    
+    .company-info {
+        padding: 50px 40px;
+    }
+    
+    .iroatique-section {
+        gap: 50px;
+        padding: 50px 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        padding: 0 35px;
+    }
+    
+    .hero {
+        height: 75vh;
+        min-height: 480px;
+        align-items: flex-end !important; /* 下寄りを強制 */
+    }
+    
+    .hero-content {
+        padding-bottom: 170px !important; /* 140px分上に調整 */
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2.1rem;
+    }
+    
+    .about, .service, .philosophy, .contact {
+        padding: 90px 0;
+    }
+    
+    .company-info {
+        padding: 45px 35px;
+    }
+    
+    .iroatique-section {
+        gap: 45px;
+        padding: 45px 35px;
+    }
+    
+    .examples {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 35px;
+    }
+    
+    /* タブレットでは背景を右寄りに調整 */
+    .hero-background {
+        background-position: right center !important;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav {
+        display: none;
+    }
+    
+    .container {
+        padding: 0 25px;
+    }
+    
+    .hero {
+        height: 65vh;
+        min-height: 420px;
+        margin-top: 70px;
+        align-items: flex-end !important; /* 下寄りを強制 */
+    }
+    
+    .hero-content {
+        padding-bottom: 160px !important; /* 140px分上に調整 */
+    }
+    
+    .hero-background {
+        background-position: right center !important; /* スマホでは右寄りに配置して男の子を表示 */
+        background-size: cover;
+        background-attachment: scroll;
+        /* より確実に右側を表示するための設定 */
+        background-repeat: no-repeat;
+    }
+    
+    .hero-content {
+        padding: 0 25px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin: 0 auto;
+        max-width: 100%;
+        padding: 0 15px;
+        line-height: 1.2;
+    }
+    
+    .section-header {
+        margin-bottom: 60px;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+        letter-spacing: 0.15em;
+    }
+    
+    .about, .service, .philosophy, .contact {
+        padding: 80px 0;
+    }
+    
+    .about-content {
+        margin-bottom: 80px;
+    }
+    
+    .about-text {
+        margin-bottom: 60px;
+    }
+    
+    .about-text h3 {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+    
+    .company-info {
+        padding: 40px 30px;
+        border-radius: 15px;
+    }
+    
+    .company-info h3 {
+        font-size: 1.6rem;
+        margin-bottom: 40px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .info-item .label {
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+    }
+    
+    .info-item .value {
+        font-size: 1rem;
+    }
+    
+    .serendipity-section {
+        padding: 60px 30px;
+        border-radius: 15px;
+    }
+    
+    .serendipity-title {
+        font-size: 2rem;
+        margin-bottom: 35px;
+    }
+    
+    .serendipity-text {
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 50px;
+    }
+    
+    .examples {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 50px;
+    }
+    
+    .example-item img {
+        height: 180px;
+        border-radius: 12px;
+    }
+    
+    .example-item h4 {
+        font-size: 1.1rem;
+    }
+    
+    .service-content h3 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    
+    .service-content h4 {
+        font-size: 1.4rem;
+        margin-bottom: 25px;
+    }
+    
+    .service-description {
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 50px;
+    }
+    
+    .iroatique-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 30px;
+        border-radius: 15px;
+    }
+    
+    .iroatique-text h4 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    
+    .iroatique-text h5 {
+        font-size: 1.2rem;
+        margin: 25px 0 15px;
+    }
+    
+    .iroatique-text p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    
+    .philosophy-content h3 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    
+    .philosophy-content h4 {
+        font-size: 1.6rem;
+        margin-bottom: 35px;
+    }
+    
+    .philosophy-content p {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+    
+    .contact-info h3 {
+        font-size: 1.6rem;
+        margin-bottom: 35px;
+    }
+    
+    .info-details {
+        gap: 25px;
+    }
+    
+    .info-detail h4 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    
+    .info-detail p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .contact-form h3 {
+        font-size: 1.6rem;
+        margin-bottom: 35px;
+    }
+    
+    .form-group {
+        margin-bottom: 25px;
+    }
+    
+    .form-group label {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 14px;
+        font-size: 0.95rem;
+        border-radius: 8px;
+    }
+    
+    .form-submit button {
+        padding: 16px 35px;
+        font-size: 1rem;
+        border-radius: 40px;
+    }
+    
+    .footer {
+        padding: 50px 0 25px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-logo h3 {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
+    
+    .footer-logo p {
+        font-size: 0.95rem;
+    }
+    
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+        font-size: 0.95rem;
+    }
+    
+    .footer-info p {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .hero {
+        height: 60vh;
+        min-height: 380px;
+        margin-top: 60px;
+        align-items: flex-end !important; /* 下寄りを強制 */
+    }
+    
+    .hero-content {
+        padding-bottom: 150px !important; /* 140px分上に調整 */
+    }
+    
+    .hero-background {
+        background-position: right center !important; /* 小型スマホでも右寄りに配置 */
+        background-size: cover;
+        background-attachment: scroll;
+        /* より確実に右側を表示するための設定 */
+        background-repeat: no-repeat;
+    }
+    
+    .hero-content {
+        padding: 0 20px;
+        width: 100%;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        padding: 0 15px;
+        text-align: center;
+    }
+    
+    .section-header {
+        margin-bottom: 50px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+        letter-spacing: 0.1em;
+    }
+    
+    .about, .service, .philosophy, .contact {
+        padding: 70px 0;
+    }
+    
+    .about-content {
+        margin-bottom: 70px;
+    }
+    
+    .about-text {
+        margin-bottom: 50px;
+    }
+    
+    .about-text h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .about-text p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    
+    .company-info {
+        padding: 30px 20px;
+        border-radius: 12px;
+    }
+    
+    .company-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 35px;
+    }
+    
+    .info-grid {
+        gap: 20px;
+    }
+    
+    .info-item .label {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    
+    .info-item .value {
+        font-size: 0.95rem;
+    }
+    
+    .serendipity-section {
+        padding: 40px 20px;
+        border-radius: 12px;
+    }
+    
+    .serendipity-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .serendipity-text {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 40px;
+    }
+    
+    .examples {
+        gap: 25px;
+        margin-top: 40px;
+    }
+    
+    .example-item img {
+        height: 160px;
+        border-radius: 10px;
+    }
+    
+    .example-item h4 {
+        font-size: 1rem;
+    }
+    
+    .service-content h3 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    
+    .service-content h4 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+    
+    .service-description {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 40px;
+    }
+    
+    .iroatique-section {
+        padding: 30px 20px;
+        border-radius: 12px;
+    }
+    
+    .iroatique-text h4 {
+        font-size: 1.5rem;
+        margin-bottom: 18px;
+    }
+    
+    .iroatique-text h5 {
+        font-size: 1.1rem;
+        margin: 20px 0 12px;
+    }
+    
+    .iroatique-text p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    .philosophy-content h3 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+    
+    .philosophy-content h4 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .philosophy-content p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    
+    .contact-content {
+        gap: 50px;
+    }
+    
+    .contact-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .info-details {
+        gap: 20px;
+    }
+    
+    .info-detail h4 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+    
+    .info-detail p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .contact-form h3 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group label {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 12px;
+        font-size: 0.9rem;
+        border-radius: 6px;
+    }
+    
+    .form-submit button {
+        padding: 14px 30px;
+        font-size: 0.95rem;
+        border-radius: 35px;
+    }
+    
+    .footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-content {
+        gap: 25px;
+    }
+    
+    .footer-logo h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    
+    .footer-logo p {
+        font-size: 0.9rem;
+    }
+    
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+        font-size: 0.9rem;
+    }
+    
+    .footer-info p {
+        font-size: 0.8rem;
+        margin-bottom: 6px;
+    }
+}
+
+/* スムーススクロール */
+html {
+    scroll-behavior: smooth;
+}
+
+/* モバイルデバイスでの画像表示最適化 */
+@media screen and (max-device-width: 768px) {
+    .hero-background {
+        background-attachment: scroll;
+        background-position: right center !important;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+/* iOS Safari対応 */
+@supports (-webkit-touch-callout: none) {
+    .hero-background {
+        background-attachment: scroll;
+        background-position: right center !important;
+        background-size: cover;
+        -webkit-background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+/* より確実に右側を表示するための追加設定 */
+@media (max-width: 900px) {
+    .hero {
+        height: 75vh;
+        min-height: 480px;
+        align-items: flex-end !important; /* 下寄りを強制 */
+    }
+    
+    .hero-content {
+        padding-bottom: 170px !important; /* 140px分上に調整 */
+    }
+    
+    .hero-background {
+        background-position: right center !important;
+        background-size: cover;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+        /* 右側を確実に表示するための設定 */
+        transform: translateX(0);
+        left: auto;
+        right: 0;
+    }
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
