@@ -99,12 +99,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // EmailJSでメール送信
             const templateParams = {
-                to_name: "Serendipity-Works",
-                from_name: name,
-                from_email: email,
+                user_name: name,
+                user_email: email,
                 subject: subject,
-                message: message,
-                to_email: "yk.nnno@gmail.com"
+                user_message: message
             };
             
             emailjs.send('service_lkzpe7s', 'template_9i198uz', templateParams)
