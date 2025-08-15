@@ -1195,24 +1195,7 @@ body {
         gap: 50px;
     }
     
-    .contact-info h3 {
-        font-size: 1.5rem;
-        margin-bottom: 30px;
-    }
-    
-    .info-details {
-        gap: 20px;
-    }
-    
-    .info-detail h4 {
-        font-size: 1rem;
-        margin-bottom: 10px;
-    }
-    
-    .info-detail p {
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
+
     
     .contact-form h3 {
         font-size: 1.5rem;

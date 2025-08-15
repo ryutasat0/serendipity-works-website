@@ -68,6 +68,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // EmailJS初期化
+    emailjs.init("8uXJC6i6PJ06O-6tE");
+    
     // お問い合わせフォームの処理
     const contactForm = document.getElementById('contactForm');
     
@@ -94,20 +97,33 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.textContent = '送信中...';
             submitButton.disabled = true;
             
-            // 実際の送信処理はここに実装
-            // 例: メール送信APIの呼び出しなど
+            // EmailJSでメール送信
+            const templateParams = {
+                to_name: "Serendipity-Works",
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: message,
+                to_email: "yk.nnno@gmail.com"
+            };
             
-            // 送信完了のシミュレーション（実際の実装では削除）
-            setTimeout(() => {
-                alert('お問い合わせを送信しました。ありがとうございます。');
-                
-                // フォームをリセット
-                this.reset();
-                
-                // ボタンを元の状態に戻す
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            }, 2000);
+            emailjs.send('service_lkzpe7s', 'template_9i198uz', templateParams)
+                .then(function(response) {
+                    alert('お問い合わせを送信しました。ありがとうございます。');
+                    
+                    // フォームをリセット
+                    contactForm.reset();
+                    
+                    // ボタンを元の状態に戻す
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                }, function(error) {
+                    alert('送信に失敗しました。しばらく時間をおいて再度お試しください。');
+                    
+                    // ボタンを元の状態に戻す
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                });
         });
     }
     
