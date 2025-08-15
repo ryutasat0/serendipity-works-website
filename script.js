@@ -105,7 +105,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 user_message: message
             };
             
-            emailjs.send('service_lkzpe7s', 'template_9i198uz', templateParams)
+            // デバッグ情報をコンソールに出力
+            console.log('EmailJS送信開始');
+            console.log('Service ID:', 'service_op23nc2');
+            console.log('Template ID:', 'template_9i198uz');
+            console.log('Template Params:', templateParams);
+            
+            emailjs.send('service_op23nc2', 'template_9i198uz', templateParams)
                 .then(function(response) {
                     alert('お問い合わせを送信しました。ありがとうございます。');
                     
@@ -116,7 +122,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     submitButton.textContent = originalText;
                     submitButton.disabled = false;
                 }, function(error) {
-                    alert('送信に失敗しました。しばらく時間をおいて再度お試しください。');
+                    console.error('EmailJS送信エラー:', error);
+                    console.error('エラー詳細:', JSON.stringify(error, null, 2));
+                    
+                    let errorMessage = '送信に失敗しました。';
+                    if (error.text) {
+                        errorMessage += '\nエラー: ' + error.text;
+                    }
+                    if (error.status) {
+                        errorMessage += '\nステータス: ' + error.status;
+                    }
+                    
+                    alert(errorMessage);
                     
                     // ボタンを元の状態に戻す
                     submitButton.textContent = originalText;
